@@ -198,6 +198,8 @@ while True:
             INDEX(teksti)
         if(funks=="DEGREES"):
             DEGREES(teksti)
+        if(funks=="ODD"):
+            ODD(teksti)
 
     elif(len(mesazhi)==3):
         funks = mesazhi[0]
