@@ -165,7 +165,6 @@ while 1:
             PRINTO()
         elif(funks=="GJATESIA"):
             GJATESIA()
-        
         elif(funks=="BINARY"):
             BINARY()
         elif(funks=="PRIMAR"):
