@@ -29,13 +29,13 @@ while 1:
     def PRINTO(teksti):
          conS.send(str(opsioni).encode("ASCII"))
     def HOST():
-         hosti = gethostbyname(gethostname())
-         conS.send(str("Hosti " + hosti).encode("ASCII"))
-         conS.close()
+        hosti = gethostbyname(gethostname())
+        conS.send(str("Hosti " + hosti).encode("ASCII"))
+        conS.close()
     def TIME():
-         date = datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
-         conS.send(str(str(date)).encode("ASCII"))
-         conS.close()
+        date = datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+        conS.send(str(str(date)).encode("ASCII"))
+        conS.close()
                     
     def KONVERTO():        
           if(opsioni=="CelsiusToKelvin"):
@@ -145,3 +145,56 @@ while 1:
             result = result + stringu[i]  
 
         conS.send(str(result).encode('ASCII'))
+        
+        
+        
+    if(len(mesazhi)==1):
+        funks = mesazhi[0]
+        if (funks=="IP"):
+            IP()
+        elif (funks=="PORT"):
+            PORT()
+        elif (funks=="HOST"):
+            HOST()
+        elif (funks=="TIME"):
+            TIME()
+        elif(funks=="KENO"):
+            KENO()
+    elif(len(mesazhi)==2):
+        funks = mesazhi[0]
+        opsioni=mesazhi[1]
+        if(funks=="ZANORE"):
+            ZANORE()
+        elif(funks=="FAKTORIEL"):
+            FAKTORIEL()
+        elif(funks=="PRINTO"):
+            PRINTO()
+        elif(funks=="GJATESIA"):
+            GJATESIA()
+        
+        elif(funks=="BINARY"):
+            BINARY()
+        elif(funks=="PRIMAR"):
+            PRIMAR(opsioni)
+
+        elif(funks == "DEGREES"):
+            DEGREES()
+        elif(funks=="SIPERFAQJA"):
+            SIPERFAQJA(opsioni)
+        elif(funks=="PERIMETRI"):
+            PERIMETRI(opsioni)
+        elif(funks=="INDEX"):
+            INDEX(opsioni)
+        elif(funks=="ODD"):
+             ODD(opsioni)
+        
+    elif(len(mesazhi)==3):
+        funks = mesazhi[0]
+        opsioni=mesazhi[1]
+        numri=mesazhi[2]
+        if(funks=="KONVERTO"):
+             KONVERTO()
+        elif(funks=="KODI"):
+            KODI(opsioni,numri)
+        elif(funks=="ASTRO"):
+            ASTRO(opsioni,numri)
