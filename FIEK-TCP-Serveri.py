@@ -20,7 +20,7 @@ while 1:
     
     def ZANORE(teksti):
          nrZ = 0
-         zanoret = ['A', 'E', 'I', 'O', 'U', 'Y','a', 'e', 'i', 'o', 'u', 'y']
+        zanoret = ['A', 'E', 'I', 'O', 'U', 'Y','a', 'e', 'i', 'o', 'u', 'y']
             for i in opsioni:
                  if i in zanoret:
                     nrZ+=1
@@ -39,44 +39,44 @@ while 1:
                     
     def KONVERTO():        
           if(opsioni=="CelsiusToKelvin"):
-                 shkalla = 273.16+int(numri)
-                 conS.send(str(str(numri)+" Celsius = "+ str(shkalla)+" Kelvin").encode("ASCII"))
-                 conS.close()
+                shkalla = 273.16+int(numri)
+                conS.send(str(str(numri)+" Celsius = "+ str(shkalla)+" Kelvin").encode("ASCII"))
+                conS.close()
             elif(opsioni=="CelsiusToFahrenheit"):
-                 shkalla = (9*float(numri)/5)+32
-                 conS.send(str(str(numri)+"Celsius "+ str(shkalla)+" Farenhajt").encode("ASCII"))
-                 conS.close()
+                shkalla = (9*float(numri)/5)+32
+                conS.send(str(str(numri)+"Celsius "+ str(shkalla)+" Farenhajt").encode("ASCII"))
+                conS.close()
             elif(opsioni=="KelvinToFarenheit"):
-                 shkalla = 1.8*(float(numri)-273)+32
-                 conS.send(str(str(numri)+"Kelvin "+ str(shkalla)+" Farenhajt").encode("ASCII"))
-                 conS.close()
+                shkalla = 1.8*(float(numri)-273)+32
+                conS.send(str(str(numri)+"Kelvin "+ str(shkalla)+" Farenhajt").encode("ASCII"))
+                conS.close()
             elif(opsioni=="KelvinToCelsius"):
-                 shkalla = float(numri)-273.15
-                 conS.send(str(str(numri)+"Kelvin "+ str(shkalla)+" Celsius").encode("ASCII"))
-                 conS.close()
+                shkalla = float(numri)-273.15
+                conS.send(str(str(numri)+"Kelvin "+ str(shkalla)+" Celsius").encode("ASCII"))
+                conS.close()
             elif(opsioni=="FahrenheitToCelsius"):
-                 shkalla = 5*(float(numri)-32)/9
-                 conS.send(str(str(numri)+"Farenhight "+ str(shkalla)+" Celsius").encode("ASCII"))
-                 conS.close()
+                shkalla = 5*(float(numri)-32)/9
+                conS.send(str(str(numri)+"Farenhight "+ str(shkalla)+" Celsius").encode("ASCII"))
+                conS.close()
             elif(opsioni=="FahrenheitToKelvin"):
-                 shkalla = 5*(float(numri)-32)/9
-                 conS.send(str(str(numri)+"Farenhight "+ str(shkalla)+" Kelvin").encode("ASCII"))
-                 conS.close()
+                shkalla = 5*(float(numri)-32)/9
+                conS.send(str(str(numri)+"Farenhight "+ str(shkalla)+" Kelvin").encode("ASCII"))
+                conS.close()
             elif(opsioni=="PoundToKilogram"):
-                 shkalla= float(numri)*0.45359237
-                 conS.send(str(str(numri)+"Pound "+ str(shkalla)+" Kilogram").encode("ASCII"))
-                 conS.close()
+                shkalla= float(numri)*0.45359237
+                conS.send(str(str(numri)+"Pound "+ str(shkalla)+" Kilogram").encode("ASCII"))
+                conS.close()
             elif(opsioni=="KilogramToPound"):
-                 shkalla = float(numri)*2.2046226218
-                 conS.send(str(str(numri)+"Kilogram "+ str(shkalla)+" Pound").encode("ASCII"))
+                shkalla = float(numri)*2.2046226218
+                conS.send(str(str(numri)+"Kilogram "+ str(shkalla)+" Pound").encode("ASCII"))
             else:
-                 conS.send("Shkruaj ne formen : KONVERTO llojikonvertimit numri ".encode('ASCII'))
-                 conS.close()   
+                conS.send("Shkruaj ne formen : KONVERTO llojikonvertimit numri ".encode('ASCII'))
+                conS.close()   
 
     def KENO():
-             keno=[random.randint(1,80) for i in range(20)]
-             conS.send(str(str(keno)).encode("ASCII"))
-             conS.close()
+            keno=[random.randint(1,80) for i in range(20)]
+            conS.send(str(str(keno)).encode("ASCII"))
+            conS.close()
     def FAKTORIEL():
              f=1
             if(opsioni==""):
@@ -131,12 +131,17 @@ while 1:
     def DEGREES()
            radian = float(opsioni)*(pi/180)
            conS.send(str(str(radian)).encode('ASCII'))
-    def SIPERFAQJA (r):
-           radius = float (r)
-           sip = pi*radius*radius;
-           conS.send(str("Siperfaqja e rrethit eshte : " + str(sip)).encode('ASCII'))
+    def GJATESIA():
+        count=0
+        for i in opsioni:
+            count+=1
+        conS.send(str("Gjatesia e stringut:"+str(count)).encode("ASCII"))
 
-    def PERIMETRI (r):
-        radius = float(r)
-        perimetri = 2*pi*radius;
-        conS.send(str("Perimetri i rrethit eshte : " + str(perimetri)).encode('ASCII'))
+    
+    def ODD(stringu):  
+         result = ""   
+        for i in range(len(stringu)):  
+            if i % 2 == 0:  
+            result = result + stringu[i]  
+
+        conS.send(str(result).encode('ASCII'))
