@@ -78,7 +78,7 @@ while 1:
             conS.send(str(str(keno)).encode("ASCII"))
             conS.close()
     def FAKTORIEL():
-             f=1
+            f=1
             if(opsioni==""):
                  conS.send(str("Ju lutemi shtypni nje numri pas komandes.").encode('ASCII'))
             else:
@@ -91,8 +91,7 @@ while 1:
                  f= 1
             while numri > 1:
                 f = f* numri
-                numri = numri - 1 
-                  
+                numri = numri - 1
                 conS.send(str("Faktorieli i numrit " + str(opsioni) + " eshte " + str(f) + ".").encode('ASCII'))
                 conS.close() 
     def KODI(plaintexti, hapi):
@@ -111,6 +110,7 @@ while 1:
                 shkronjaRe = lowercase[indeksiPlus]
                 tekstiEnkriptuar.append(shkronjaRe)
         conS.send(str(tekstiEnkriptuar).encode('ASCII'))
+        conS.close() 
         
     def PRIMAR(p) :
         n = int(p)
@@ -139,7 +139,7 @@ while 1:
 
     
     def ODD(stringu):  
-         result = ""   
+        result = ""   
         for i in range(len(stringu)):  
             if i % 2 == 0:  
             result = result + stringu[i]  
