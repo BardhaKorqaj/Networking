@@ -154,6 +154,8 @@ while 1:
             TIME()
         elif(funks=="KENO"):
             KENO()
+        else:
+            conS.send(( "Shtyp njeren nga komandat e larteshenuara!").encode('ASCII'))
     elif(len(mesazhi)==2):
         funks = mesazhi[0]
         opsioni=mesazhi[1]
@@ -178,7 +180,9 @@ while 1:
         elif(funks=="INDEX"):
             INDEX(opsioni)
         elif(funks=="ODD"):
-             ODD(opsioni)
+            ODD(opsioni)
+        else:
+            conS.send(( "Shtyp njeren nga komandat e larteshenuara!").encode('ASCII'))
     elif(len(mesazhi)==3):
         funks = mesazhi[0]
         opsioni=mesazhi[1]
@@ -189,3 +193,5 @@ while 1:
             KODI(opsioni,numri)
         elif(funks=="ASTRO"):
             ASTRO(opsioni,numri)
+        else:
+            conS.send(( "Shtyp njeren nga komandat e larteshenuara!").encode('ASCII'))
