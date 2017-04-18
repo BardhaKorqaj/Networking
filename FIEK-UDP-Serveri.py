@@ -45,8 +45,8 @@ while True:
               f= 1
         while numri > 1:
               f = f* numri
-              numri = numri - 1 
-         serverSocket.sendto(str("Faktorieli i numrit " + str(opsioni) + " eshte " + str(f) + ".").encode('ASCII'), clientAddress)
+              numri -= 1 
+        serverSocket.sendto(str("Faktorieli i numrit " + str(opsioni) + " eshte " + str(f) + ".").encode('ASCII'), clientAddress)
             def KODI(plaintexti, hapi):
         tekstiEnkriptuar = []
         uppercase =['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']  
@@ -170,9 +170,11 @@ while True:
         if (funks=="HOST"):
             HOST()
         if (funks=="TIME"):
-           TIME()
+            TIME()
         if(funks=="KENO"):
-           KENO()
+            KENO()
+        else:
+            serverSocket.sendto(( "Shtyp njeren nga komandat e larteshenuara!").encode('utf-8'),clientAddress)
     elif(len(mesazhi)==2):
         funks = mesazhi[0]
         teksti = mesazhi[1]
@@ -198,6 +200,8 @@ while True:
             INDEX(teksti)
         if(funks=="DEGREES"):
             DEGREES(teksti)
+        else:
+            serverSocket.sendto(( "Shtyp njeren nga komandat e larteshenuara!").encode('utf-8'),clientAddress)
 
     elif(len(mesazhi)==3):
         funks = mesazhi[0]
@@ -209,4 +213,6 @@ while True:
             KODI(opsioni,numer)
         if(funks=="ASTRO"):
             ASTRO(opsioni,numer)
+        else:
+            serverSocket.sendto(( "Shtyp njeren nga komandat e larteshenuara!").encode('utf-8'),clientAddress)
 
