@@ -123,75 +123,20 @@ while 1:
                 if (n%x == 0):
                      return conS.send(("Nuk eshte numer i thjeshte.").encode('ASCII'))
             return conS.send(("Eshte numer i thjeshte.").encode('ASCII'))
-    def ASTRO(o, t):   
-        opsioni = str(o)
-        numri = int(t)
-        if(opsioni=="dhjetor"):
-                if(numri < 22):
-                    conS.send(str("Shigjetari").encode('ASCII'))
-                else:
-                    conS.send(str("Bricjapi").encode('ASCII'))
-        elif(opsioni=="janar"):
-                if(numri<20):
-                     conS.send(str("Bricjapi").encode('ASCII'))
-                else:
-                     conS.send(str("Ujori").encode('ASCII'))
-        elif(opsioni=="shkurt"):
-                if(numri<19):
-                     conS.send(str("Ujori").encode('ASCII'))
-                else:
-                     conS.send(str("Peshqit").encode('ASCII'))
-        elif(opsioni=="mars"):
-                if(numri<21):
-                     conS.send(str("Peshqit").encode('ASCII'))
-                else:
-                     conS.send(str("Dashi").encode('ASCII'))
-        elif(opsioni=="prill"):
-                if(numri<20):
-                     conS.send(str("Dashi").encode('ASCII'))
-                else:
-                     conS.send(str("Demi").encode('ASCII'))
-        elif(opsioni=="maj"):
-                if(numri<21):
-                     conS.send(str("Demi").encode('ASCII'))
-                else:
-                     conS.send(str("Binjaket").encode('ASCII'))
-        elif(opsioni=="qershor"):
-                if(numri<21):
-                     conS.send(str("Binjaket").encode('ASCII'))
-                else:
-                     conS.send(str("Gaforrja").encode('ASCII'))
-        elif(opsioni=="korrik"):
-                if(numri<23):
-                     conS.send(str("Gaforrja").encode('ASCII'))
-                else:
-                     conS.send(str("Luani").encode('ASCII'))
-        elif(opsioni=="gusht"):
-                if(numri<23):
-                     conS.send(str("Luani").encode('ASCII'))
-                else:
-                     conS.send(str("Virgjeresha").encode('ASCII'))
-        elif(opsioni=="shtator"):
-                if(numri<23):
-                     conS.send(str("Virgjeresha").encode('ASCII'))
-                else:
-                     conS.send(str("Peshorja").encode('ASCII'))
-        elif(opsioni=="tetor"):
-                if(numri<23):
-                     conS.send(str("Peshorja").encode('ASCII'))
-                else:
-                     conS.send(str("Akrepi").encode('ASCII'))
-        elif(opsioni=="nentor"):
-                if(numri<22):
-                     conS.send(str("Akrepi").encode('ASCII'))
-                else:
-                     conS.send(str("Shigjetari").encode('ASCII'))
-    def BINARY():
-         value=0
+    def INDEX(str1):
+        stringu = ""
+        for index, char in enumerate(str1):  
+            stringu += ("Karakteri: " + str(char) + " indexi " + str(index) + "\n")
+        conS.send((stringu).encode('ASCII'))
+    def DEGREES()
+           radian = float(opsioni)*(pi/180)
+           conS.send(str(str(radian)).encode('ASCII'))
+    def SIPERFAQJA (r):
+           radius = float (r)
+           sip = pi*radius*radius;
+           conS.send(str("Siperfaqja e rrethit eshte : " + str(sip)).encode('ASCII'))
 
-        for i in range(0,len(opsioni)):
-              if(opsioni[i]=="1"):
-                     value=value + pow(2,len(opsioni)-1)
-        conS.send(str(value).encode('ASCII'))
-      
-
+    def PERIMETRI (r):
+        radius = float(r)
+        perimetri = 2*pi*radius;
+        conS.send(str("Perimetri i rrethit eshte : " + str(perimetri)).encode('ASCII'))
