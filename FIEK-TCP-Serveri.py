@@ -35,8 +35,7 @@ while 1:
     def TIME():
         date = datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
         conS.send(str(str(date)).encode("ASCII"))
-        conS.close()
-                    
+        conS.close()  
     def KONVERTO():        
           if(opsioni=="CelsiusToKelvin"):
                 shkalla = 273.16+int(numri)
@@ -72,7 +71,6 @@ while 1:
             else:
                 conS.send("Shkruaj ne formen : KONVERTO llojikonvertimit numri ".encode('ASCII'))
                 conS.close()   
-
     def KENO():
             keno=[random.randint(1,80) for i in range(20)]
             conS.send(str(str(keno)).encode("ASCII"))
@@ -111,7 +109,6 @@ while 1:
                 tekstiEnkriptuar.append(shkronjaRe)
         conS.send(str(tekstiEnkriptuar).encode('ASCII'))
         conS.close() 
-        
     def PRIMAR(p) :
         n = int(p)
         if (n == 1):
@@ -136,7 +133,6 @@ while 1:
         for i in opsioni:
             count+=1
         conS.send(str("Gjatesia e stringut:"+str(count)).encode("ASCII"))
-
     
     def ODD(stringu):  
         result = ""   
@@ -145,9 +141,7 @@ while 1:
             result = result + stringu[i]  
 
         conS.send(str(result).encode('ASCII'))
-        
-        
-        
+
     if(len(mesazhi)==1):
         funks = mesazhi[0]
         if (funks=="IP"):
@@ -160,6 +154,8 @@ while 1:
             TIME()
         elif(funks=="KENO"):
             KENO()
+        else:
+            conS.send(( "Shtyp njeren nga komandat e larteshenuara!").encode('ASCII'))
     elif(len(mesazhi)==2):
         funks = mesazhi[0]
         opsioni=mesazhi[1]
@@ -171,12 +167,10 @@ while 1:
             PRINTO()
         elif(funks=="GJATESIA"):
             GJATESIA()
-        
         elif(funks=="BINARY"):
             BINARY()
         elif(funks=="PRIMAR"):
             PRIMAR(opsioni)
-
         elif(funks == "DEGREES"):
             DEGREES()
         elif(funks=="SIPERFAQJA"):
@@ -186,8 +180,9 @@ while 1:
         elif(funks=="INDEX"):
             INDEX(opsioni)
         elif(funks=="ODD"):
-             ODD(opsioni)
-        
+            ODD(opsioni)
+        else:
+            conS.send(( "Shtyp njeren nga komandat e larteshenuara!").encode('ASCII'))
     elif(len(mesazhi)==3):
         funks = mesazhi[0]
         opsioni=mesazhi[1]
@@ -198,3 +193,5 @@ while 1:
             KODI(opsioni,numri)
         elif(funks=="ASTRO"):
             ASTRO(opsioni,numri)
+        else:
+            conS.send(( "Shtyp njeren nga komandat e larteshenuara!").encode('ASCII'))
